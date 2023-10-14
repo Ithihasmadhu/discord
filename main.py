@@ -42,6 +42,9 @@ async def predict_pokemon(request):
                 predicted_class_index = np.argmax(prediction)
                 pokemon_name = class_dict.get(predicted_class_index, "Unknown")
 
+                # Convert predicted_class_index to a serializable data type (e.g., int)
+                predicted_class_index = int(predicted_class_index)
+
                 result = {
                     "predicted_class_index": predicted_class_index,
                     "pokemon_name": pokemon_name
